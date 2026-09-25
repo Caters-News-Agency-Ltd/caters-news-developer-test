@@ -123,4 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'testing_token' => env('TESTING_TOKEN'),
 ];
