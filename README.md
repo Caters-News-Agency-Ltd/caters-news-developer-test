@@ -46,3 +46,5 @@ A Gemini API key will be provided to you for testing during this phase. This key
 ## Submission
 
 Once complete, please share a link to your public fork so your solution can be reviewed. After your in-person session, please push the changes you have made to the fork.
+
+Please also include a dump of the results produced by the AI's recommendations, stored as a `.txt` or `.json` file, so that their accuracy can be validated.
