@@ -1,58 +1,48 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Caters News Developer Test
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This repository is a barebones Laravel application used to assess applicants as part of the Caters News developer hiring process. It is intentionally minimal and provides just enough scaffolding for you to demonstrate how you approach a real-world task.
 
-## About Laravel
+## Getting Started
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+To take part in this test, fork this repository to your own GitHub account and configure it to run in your local development environment.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+For simplicity, you're encouraged to keep the setup lightweight:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Use **SQLite** as your database to avoid the need to install and configure a separate database server.
+- Run the application locally with `php artisan serve`.
 
-## Learning Laravel
+Beyond installing dependencies via Composer and setting up your `.env` file, minimal configuration should be required to get the application running.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## The Task
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The test is split into two phases.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+### Phase One
 
-## Agentic Development
+You will need to retrieve data from an external API that requires authentication. The endpoint to use is:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+```
+https://clipsadmin.catersnews.com/api/test/listVideos
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+A token for the endpoint will be provided to you separately when you undertake the task.
 
-## Contributing
+You are expected to build a way to:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Authenticate requests to the endpoint.
+- Loop through and retrieve all available data from the endpoint.
+- Store the retrieved data against the `Video` model.
 
-## Code of Conduct
+Your implementation should guard against pre-existing data being duplicated or overwritten on subsequent runs.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Phase Two
 
-## Security Vulnerabilities
+Using the [Laravel AI SDK](https://laravel.com/docs/ai), you will build a simple AI agent that analyses the videos stored in phase one and recommends the most appropriate ones to a list of customers.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Before starting this phase, you will need to seed the `Customer` model with some sample data for the agent to make recommendations against.
 
-## License
+A Gemini API key will be provided to you for testing during this phase. This key will be revoked after the session, so it should not be relied upon beyond that point.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Submission
+
+Once complete, please share a link to your public fork so your solution can be reviewed. After your in-person session, please push the changes you have made to the fork.
